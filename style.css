@@ -9,7 +9,7 @@
 :root {
     --scissorsGradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
     --paperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
-    --rockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+    --rockGradient: linear-gradient(hsl(349, 71%, 52%) to hsl(349, 70%, 56%));
     --lizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
     --cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
 
@@ -35,7 +35,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-around;
     align-items: center;
 }
 
@@ -67,6 +67,10 @@ body {
 .score h2 {
     font-size: 3rem;
 }
+.rules-block {
+   display: flex;
+   align-items: flex-end;
+}
 .rules {
     border: 2px solid #fff;
     border-radius: 10px;
@@ -85,33 +89,24 @@ body {
    
 }
 .buttons-block {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    display: flex;
     width: 100%;
-    grid-template-areas: "paper paper paper scissors scissors scissors " "rock rock rock rock rock rock"; 
+    align-items: center;
+    justify-content: center;
+    
 }
 .button-block {
     align-items: center;
 }
 .paper {
-    grid-area: paper;
-    grid-column-start: 2;
     text-align: center;
-
 }
 .scissors {
-    grid-area: scissors;
-    grid-column-start: 2;
     text-align: center;
     justify-self: center;
-
 }
 .rock {
-    grid-area: rock;
-    grid-column-start: 1;
     text-align: center;
-    justify-self: center;
-
 }
 .button-main {
     background-color: #fff;
@@ -119,20 +114,46 @@ body {
     padding: 20px;
     width: 180px;
     height: 180px;
-    border: 20px solid transparent;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
+    /* box-shadow: 0px 7px 0px pink; */
 }
-.button-main.button-paper {
-    border-color: blue;
+
+/* #b9bed2 */
+
+.paper .button-main {
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: 0px 7px 0px  #2946c0;
 }
-.button-main.button-scissors {
-    border-color: yellow;
+
+.paper .button-main .button-paper  {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 100px;
 }
-.button-main.button-rock {
-    border-color: red;
+
+.scissors .button-main {
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 0px 7px 0px  #c76c1c;
+}
+
+.scissors .button-main .button-scissors  {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 100px;
+}
+
+.rock .button-main {
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 0px 7px 0px  #9d1633;
+}
+
+.rock .button-main .button-rock  {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 100px;
 }
 
 .attribution {
