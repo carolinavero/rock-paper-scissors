@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --scissorsGradient: hsl(39, 89%, 49%) to hsl(40, 84%, 53%);
+    --paperGradient: hsl(230, 89%, 62%) to hsl(230, 89%, 65%);
+    --rockGradient: hsl(349, 71%, 52%) to hsl(349, 70%, 56%);
+    --lizardGradient: hsl(261, 73%, 60%) to hsl(261, 72%, 63%);
+    --cyan: hsl(189, 59%, 53%) to hsl(189, 58%, 57%);
+
+    --darkText: hsl(229, 25%, 31%);
+    --scoreText: hsl(229, 64%, 46%);
+    --headerOutline: hsl(217, 16%, 45%);
+
+    --mobile: 375px;
+    --desktop: 1366px;
+}
+
+html, body {
+    height: 100vh;
+}
+
+body {
+    font-family: 'Barlow Semi Condensed', sans-serif;
+    background: hsl(214, 47%, 23%);
+    background: -moz-radial-gradient(circle, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+    background: -webkit-radial-gradient(circle, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+    background: radial-gradient(circle, hsl(214, 47%, 23%) 0%, hsl(237, 49%, 15%) 100%);
+    color: #fff;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.game {
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    width: var(--desktop);
+    width: 1000px;
+}
+
+.top {
+    display: flex;
+    justify-content: space-between;
+    border: 3px solid var(--headerOutline);
+    border-radius: 10px;
+    padding: 20px 30px;
+}
+.score {
+    background-color: #fff;
+    color: var(--darkText);
+    border-radius: 10px;
+    padding: 15px 30px;
+    text-transform: uppercase;
+}
+.score p {
+    color: var(--scoreText);
+}
+.score h2 {
+    font-size: 3rem;
+}
+.rules {
+    border: 2px solid #fff;
+    border-radius: 10px;
+    background-color: transparent;
+    padding: 15px;
+}
+.rules a {
+    color: #fff;
+    font-size: 1rem;
+}
+
+.game__board {
+    background-image: url(images/bg-triangle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+   
+}
+.buttons-block {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 100%;
+    grid-template-areas: "paper paper paper scissors scissors scissors " "rock rock rock rock rock rock"; 
+}
+.button-block {
+    align-items: center;
+}
+.paper {
+    grid-area: paper;
+    grid-column-start: 2;
+    text-align: center;
+
+}
+.scissors {
+    grid-area: scissors;
+    grid-column-start: 2;
+    text-align: center;
+    justify-self: center;
+
+}
+.rock {
+    grid-area: rock;
+    grid-column-start: 1;
+    text-align: center;
+    justify-self: center;
+
+}
+.button-main {
+    background-color: #fff;
+    border-radius: 100px;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+    border: 20px solid transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+.button-main.button-paper {
+    border-color: blue;
+}
+.button-main.button-scissors {
+    border-color: yellow;
+}
+.button-main.button-rock {
+    border-color: red;
+}
+
+.attribution {
+    text-align: center;
+    font-weight: 600;
+
+}
+.attribution a {
+    color: #fff;
+    text-decoration: none;
+}
+
+@media(min-width: 600px) {
+    .game {
+        max-width: var(--desktop);
+    }
+}
