@@ -23,7 +23,7 @@
   
     <div class="score">
       <p>Score</p>
-      <h2>12</h2>
+      <h2></h2>
     </div>
   </section>
   
@@ -33,9 +33,9 @@
 
       <div class="paper">
         <div class="button-main">
-          <div class="button-paper">
+          <a href="javascript:void(0)" class="button-paper">
             <img src="images/icon-paper.svg" alt="paper">
-          </div>
+          </a>
         </div>
       </div>
       
@@ -43,9 +43,9 @@
 
         <div class="scissors">
           <div class="button-main">
-            <div class="button-scissors">
+            <a href="javascript:void(0)"  class="button-scissors">
               <img src="images/icon-scissors.svg" alt="scissors">
-            </div>
+            </a>
           </div>
         </div>
 
@@ -58,34 +58,68 @@
       
       <div class="rock">
         <div class="button-main">
-          <div class="button-rock">
+          <a href="javascript:void(0)" class="button-rock">
             <img src="images/icon-rock.svg" alt="Rock">
-          </div>
+          </a>
         </div>
       </div>
 
     </div>
   
   </section>
-  
-  <!-- 
-    
-    You Picked
-    The House Picked
-    
-    You Win
-    You Lose
-    
-    Play Again -->
-  
-  
 
+
+  <section class="game__result">
+    <div class="results-block">
+        <div class="user">
+          <h2>You picked</h2>
+          <div class="user-choice">
+
+            <div class="button-block"></div>
+
+          </div>
+        </div>
+        <div>
+          <h2 class="result"></h2> <!-- You Lose / You Win -->
+          <button class="restart">Play again</button>
+        </div>
+        <div class="comp">
+          <h2>The house picked</h2>
+          <div class="comp-choice">
+            <div class="button-block"></div>
+          </div>
+        </div>
+
+
+    </div>
+  </section>
+  
     
   </div>
 
 
   <section class="rules-block">
-      <a class="button rules">Rules</a>
+
+      <button id="openModal" class="button rules">Rules</button>
+
+      <div id="modal" class="modal">
+      
+        <div class="modal-content">
+
+            <div class="modal-header">
+              <h2>Rules</h2>
+              <button  id="closeModal">
+                <img src="images/icon-close.svg" alt="Close">
+              </button>
+            </div>
+
+            <a href="javascript:void(0)">
+              <img src="images/image-rules.svg" alt="Rules">
+            </a>
+
+        </div>
+      </div>
+
   </section>
 
   <div class="attribution">
@@ -93,6 +127,7 @@
     Coded by <a href="https://github.com/carolinavero">Carolina Vero</a>.
   </div>
 
+  <script src="scripts.js"></script>
 
 </body>
 </html>
