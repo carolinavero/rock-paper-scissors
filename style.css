@@ -35,7 +35,7 @@ body {
 
     display: flex;
     flex-direction: column;
-    justify-content: flex-start;
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -125,16 +125,20 @@ body {
     background-image: url(images/bg-triangle.svg);
     background-repeat: no-repeat;
     background-position: center;
+        padding: 4rem 0;
 }
 .game__result {
     align-items: center;
     justify-content: center;
     text-align: center;
+    display: none;
+        padding: 4rem 0;
 }
 .results-block {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    width: 100%;
 }
 .results-block h2 {
     text-transform: uppercase;
@@ -152,7 +156,7 @@ body {
 .results-block button:hover {
     color: red;
 }
-.results-block  .comp {
+.results-block .comp {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -234,7 +238,7 @@ body {
 .attribution {
     text-align: center;
     font-weight: 600;
-
+    padding: 2rem 0;
 }
 .attribution a {
     color: #fff;
