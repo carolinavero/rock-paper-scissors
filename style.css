@@ -70,13 +70,14 @@ body {
 }
 .rules-block {
    display: flex;
-   align-items: flex-end;
+   width: 80%;
+   justify-content: flex-end;
 }
 .rules {
     border: 2px solid #fff;
     border-radius: 10px;
     background-color: transparent;
-    padding: 15px;
+    padding: 10px 30px;
     color: #fff;
     font-size: 1rem;
     text-transform: uppercase;
@@ -125,19 +126,83 @@ body {
     background-image: url(images/bg-triangle.svg);
     background-repeat: no-repeat;
     background-position: center;
-        padding: 4rem 0;
+    padding: 4rem 0;
 }
+
+.buttons-block {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+.button-block {
+    align-items: center;
+    padding: 20px;
+}
+
+.paper,
+.rock {
+    text-align: center;
+    padding: 20px;
+}
+.scissors {
+    text-align: center;
+    justify-self: center;
+    padding: 20px;
+}
+
+.button-main {
+    background-color: #fff;
+    border-radius: 100px;
+    padding: 20px;
+    width: 180px;
+    height: 180px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.paper .button-main {
+    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+    box-shadow: 0px 7px 0px  #2946c0;
+}
+.scissors .button-main {
+    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+    box-shadow: 0px 7px 0px  #c76c1c;
+}
+
+.rock .button-main {
+    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+    box-shadow: 0px 7px 0px  #9d1633;
+}
+
+.button-paper,
+.button-scissors, 
+.button-rock  {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 100px;
+    width: 140px;
+    height: 140px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    box-shadow: inset 0em 0.5em #b9bed2;
+}
+
 .game__result {
     align-items: center;
     justify-content: center;
     text-align: center;
     display: none;
-        padding: 4rem 0;
+    padding: 4rem 0;
+    min-height: 50vh;
 }
 .results-block {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
     width: 100%;
 }
 .results-block h2 {
@@ -161,80 +226,32 @@ body {
     flex-direction: column;
     align-items: center;
 }
-.results-block .comp .comp-choice {
+
+.results-block .comp .comp-choice .preview {
     background-color: #172741;
-    border-radius: 100px;
+    border-radius: 200px;
+    width: 200px;
+    height: 200px;
+    margin: 45px 0;
+}
+.results-block .button-main {
+    width: 250px;
+    height: 250px;
+    border-radius: 200px;
+}
+.results-block .button-main a {
     width: 180px;
     height: 180px;
+    border-radius: 200px;
+}
+.results-block .button-main a img {
+    width: 80px;
 }
 
-.buttons-block {
-    display: flex;
-    width: 100%;
-    align-items: center;
-    justify-content: center;
-    
+.results-block .show-result {
+    display: none;
+    flex-direction: column;
 }
-.button-block {
-    align-items: center;
-}
-.paper {
-    text-align: center;
-}
-.scissors {
-    text-align: center;
-    justify-self: center;
-}
-.rock {
-    text-align: center;
-}
-.button-main {
-    background-color: #fff;
-    border-radius: 100px;
-    padding: 20px;
-    width: 180px;
-    height: 180px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-/* #b9bed2 */
-
-.paper .button-main {
-    background: linear-gradient(hsl(230, 89%, 62%), hsl(230, 89%, 65%));
-    box-shadow: 0px 7px 0px  #2946c0;
-}
-
-.paper .button-main .button-paper  {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 100px;
-}
-
-.scissors .button-main {
-    background: linear-gradient(hsl(39, 89%, 49%), hsl(40, 84%, 53%));
-    box-shadow: 0px 7px 0px  #c76c1c;
-}
-
-.scissors .button-main .button-scissors  {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 100px;
-}
-
-.rock .button-main {
-    background: linear-gradient(hsl(349, 71%, 52%), hsl(349, 70%, 56%));
-    box-shadow: 0px 7px 0px  #9d1633;
-}
-
-.rock .button-main .button-rock  {
-    background-color: #fff;
-    padding: 40px;
-    border-radius: 100px;
-}
-
 .attribution {
     text-align: center;
     font-weight: 600;
@@ -243,6 +260,62 @@ body {
 .attribution a {
     color: #fff;
     text-decoration: none;
+}
+
+/* Winner Effect */
+.results-block .user-choice,
+.results-block .comp-choice {
+    position: relative;
+    z-index: 0;
+}
+.winner {
+    justify-content: center;
+}
+.winner-wrapper {
+  position: absolute;
+  top: 70px;
+  margin: 0 auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 9999px;
+  background-color: hsl(237, 49%, 15%);
+  z-index: -1;
+}
+
+.winner-wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 9999px;
+  background-color: hsl(237, 49%, 15%);
+  opacity: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.winner-wave1 {
+  animation: winnerEffect 2s linear infinite;
+}
+.winner-wave2 {
+  animation: winnerEffect 2s 0.5s linear infinite;
+}
+.winner-wave3 {
+  animation: winnerEffect 2s 1s linear infinite;
+}
+.winner-wave4 {
+  animation: winnerEffect 2s 1.5s linear infinite;
+}
+
+@keyframes winnerEffect {
+  from {
+    opacity: 0.4;
+  }
+  to {
+    transform: scale(3);
+    opacity: 0;
+  }
 }
 
 @media(min-width: 600px) {
