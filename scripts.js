@@ -16,9 +16,6 @@ var compChoiceArea = document.querySelector('.comp-choice');
 const showResult = document.querySelector('.show-result');
 const previewEl = document.querySelector('.preview');
 
-
-console.log('winner block', winnerBlock);
-
 var scoreValue = document.querySelector('.score h2');
 scoreValue.textContent = 0; 
 var score = 0;
@@ -30,7 +27,6 @@ const rules = document.querySelector('.rules');
 var userChoice, compChoice;
 
 const btnValues = ['paper', 'rock', 'scissors'];
-
 
 var winnerBlock = document.createElement('div');
 winnerBlock.classList.add('winner');
@@ -50,7 +46,7 @@ function getRandomValue(min, max) {
 }
 
 function restartGame() {
-    console.log("restart game");
+
     gameBoard.style.display = 'block';
 
     compChoiceArea.innerHTML = '';
@@ -60,13 +56,11 @@ function restartGame() {
     gameResult.style.display = 'none';
     showResult.style.display = 'none';
 
-    //score = 0;
     random = getRandomValue(0, 2);
-    console.log("restart... comp choice: ", btnValues[random])
+
 }
 
 var random = getRandomValue(0, 2);
-console.log("comp choice", btnValues[random]);
 
 function checkWinner(userChoice, compChoice) {
     console.log(userChoice, compChoice, score);
@@ -141,7 +135,6 @@ function waitCompChoice(choice) {
     gameResult.style.display = 'flex';
 
     compChoice = btnValues[random];
-    //console.log("comp choice", compChoice);
 
     setTimeout(function () { 
 
@@ -160,7 +153,6 @@ function waitCompChoice(choice) {
 
     }, 800);
 
-    
 
     checkWinner(choice, compChoice);
 }

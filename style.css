@@ -23,7 +23,7 @@
 
 html, body {
     height: 100vh;
-    overflow: hidden;
+    overflow-x: hidden;
 }
 
 body {
@@ -42,6 +42,7 @@ body {
 
 }
 
+
 .game {
     display: flex;
     flex-direction: column;
@@ -55,6 +56,7 @@ body {
     border: 3px solid var(--headerOutline);
     border-radius: 8px;
     padding: 10px;
+    z-index: 1;
 }
 
 .top .logo img {
@@ -93,6 +95,7 @@ body {
     cursor: pointer;
     outline: none;
 }
+
 .modal-header {
     display: flex;
     align-items: center;
@@ -116,25 +119,30 @@ body {
 }
 
 /* Modal Content/Box */
+
 .modal-content {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
   border: none;
-  width: 40%;
+  width: 90%;
   text-align: center;
   border-radius: 10px;
 }
 .modal button {
     border: none;
+    background-color: #fff;
+}
+.modal img {
+ max-width: 100%;
 }
 
 .game__board {
     background-image: url(images/bg-triangle.svg);
     background-repeat: no-repeat;
     background-position: center;
-    background-size: contain;
-    padding: 4rem 0;
+    background-size: 50%;
+    padding: 2rem 0;
 }
 
 .buttons-block {
@@ -215,20 +223,26 @@ body {
     align-items: center;
     justify-content: space-around;
     width: 100%;
+    flex-wrap: wrap;
 }
 .results-block h2 {
     text-transform: uppercase;
-    font-size: 1rem;
-    font-weight: 600;
-    letter-spacing: 1px;
     z-index: 1;
+    font-size: .8rem;
+    font-weight: 600;
+    letter-spacing: 2px;
+    padding-top: 2rem;
 }
+
 .results-block button {
-    padding: 15px 50px;
+    padding: 15px;
     border-radius: 10px;
-    font-size: 1.2rem;
+    font-size: .9rem;
     cursor: pointer;
     text-transform: uppercase;
+    background-color: #fff;
+    letter-spacing: 1px;
+    color:hsl(214, 47%, 23%);
 }
 .results-block button:hover {
     color: red;
@@ -245,7 +259,7 @@ body {
     border-radius: 200px;
     width: 100px;
     height: 100px;
-    margin: 45px 0;
+    margin: 0;
 }
 .results-block .button-main {
     width: 130px;
@@ -264,7 +278,22 @@ body {
 .results-block .show-result {
     display: none;
     flex-direction: column;
+    order: 1;
+    padding-top: 3rem;
+    z-index: 2;
 }
+.results-block .paper,
+.results-block .scissors,
+.results-block .rock {
+    padding: 0 5px;
+}
+
+.result {
+    font-size: 3rem;
+    text-transform: uppercase;
+    font-weight: 100;
+}
+
 .attribution {
     text-align: center;
     font-weight: 600;
@@ -279,14 +308,15 @@ body {
 .results-block .user-choice,
 .results-block .comp-choice {
     position: relative;
-    z-index: 0;
+    z-index: 9;
 }
+
 .winner {
     justify-content: center;
 }
 .winner-wrapper {
   position: absolute;
-  top: 10px;
+  top: -5px;
   margin: 0 auto;
   width: 140px;
   height: 140px;
@@ -361,6 +391,7 @@ body {
     }
     .game__board {
         background-size: auto;
+        padding: 4rem 0;
     }
     .button-main {
 
@@ -391,6 +422,11 @@ body {
         justify-content: flex-end;
     }
 
+    .modal-content {
+        width: 40%;
+    }
+
+
     .results-block .user,
     .results-block .comp {
         display: flex;
@@ -398,10 +434,16 @@ body {
     }
     .results-block h2 {
         font-size: 2rem;
+        letter-spacing: 1px;
+        padding: 0;
+        margin-bottom: 1rem;
+    }
+    .results-block button {
+        padding: 15px 50px;
+        font-size: 1.2rem;
     }
 
     .results-block .comp .comp-choice .preview {
-        
         width: 200px;
         height: 200px;
         margin: 45px 0;
@@ -418,6 +460,10 @@ body {
     }
     .results-block .button-main a img {
         width: 80px;
+    }
+    .results-block .show-result {
+        order: 0;
+        padding-top: 0;
     }
 
     .winner-wrapper {
