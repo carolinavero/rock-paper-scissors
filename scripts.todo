@@ -1,0 +1,29 @@
+Todos:
+  Tests for Rock, Paper and Scissors Game
+
+  Rules:
+    ☐ Paper beats Rock
+    ☐ Rock beats Scissors
+    ☐ Scissors beats Paper
+    ☐ If the player wins, they gain 1 point. 
+    ☐ If the computer wins, the player loses one point.
+
+  New:
+
+    #First Screen
+    ☐ Generate a random value (Alt D)
+    ☐ Gets the computer choice
+    ☐ Gets the user choice
+
+    #Second Screen
+    ☐ Print user choice + preview Comp Choice
+
+    #Third Screen
+    ☐ Print user choice + Comp Choice
+
+    #Forth Screen
+    ☐ Print winner + replay button + score
+
+
+  Done:
+    ☐
