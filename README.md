@@ -1,5 +1,4 @@
 # Frontend Mentor - Rock, Paper, Scissors
-[![tested with jest](https://img.shields.io/badge/tested_with-jest-99424f.svg)](https://github.com/facebook/jest)
 
 ![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)
 
@@ -25,5 +24,5 @@ If the player wins, they gain 1 point. If the computer wins, the player loses on
 - Rock beats Scissors
 - Scissors beats Paper
 
-## Demo
+## [Demo](https://rock-paper-scissors.carolinavero.now.sh/)
 
