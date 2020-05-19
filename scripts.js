@@ -1,5 +1,3 @@
-//module.exports = {};
-
 const btnPaper = document.querySelector('.button-paper');
 const btnRock = document.querySelector('.button-rock');
 const btnScissors = document.querySelector('.button-scissors');
@@ -62,14 +60,13 @@ function restartGame() {
 
 var random = getRandomValue(0, 2);
 
-function checkWinner(userChoice, compChoice) {
-    console.log(userChoice, compChoice, score);
 
+function checkWinner(userChoice, compChoice) {
+    
     setTimeout(function () {
 
         showResult.style.display = 'flex';
         winnerBlock.style.display = 'flex';
-
 
         if (userChoice === compChoice) {
             console.log("Tie");
@@ -129,6 +126,7 @@ function checkWinner(userChoice, compChoice) {
     
 }
 
+// Computer Choice
 function waitCompChoice(choice) {
 
     gameBoard.style.display = 'none';
@@ -153,14 +151,12 @@ function waitCompChoice(choice) {
 
     }, 800);
 
-
     checkWinner(choice, compChoice);
 }
 
+// User Choice
 function getUserChoice(choice) {
 
-    console.log("user choice..", choice);
-   
     userChoiceArea.innerHTML = `
     
     <div class="${choice}">
@@ -171,11 +167,10 @@ function getUserChoice(choice) {
         </div>
     </div>
     `;
-
     waitCompChoice(choice);
- 
 }
 
+// User Choice listener
 btnPaper.addEventListener('click', () => {
     getUserChoice('paper');
 });
@@ -185,19 +180,20 @@ btnRock.addEventListener('click', () => {
 btnScissors.addEventListener('click', () => {
     getUserChoice('scissors');
 });
+
+// Restart button
 btnRestart.addEventListener('click', () => {
     console.log("restart");
     restartGame();
 });
 
+//Modal buttons
 btnModal.addEventListener('click', () => {
     modal.style.display = 'block';
 });
-
 btnClose.addEventListener('click', () => {
     modal.style.display = 'none';
 });
-
 window.onclick = function (event) {
     if (event.target == modal) {
         modal.style.display = "none";
