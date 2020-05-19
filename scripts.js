@@ -1,7 +1,4 @@
-const btnPaper = document.querySelector('.button-paper');
-const btnRock = document.querySelector('.button-rock');
-const btnScissors = document.querySelector('.button-scissors');
-
+const btnChoices = document.querySelectorAll('.button-choice');
 const gameBoard = document.querySelector('.game__board');
 
 const gameResult = document.querySelector('.game__result');
@@ -69,51 +66,40 @@ function checkWinner(userChoice, compChoice) {
         winnerBlock.style.display = 'flex';
 
         if (userChoice === compChoice) {
-            console.log("Tie");
             gameResultTitle.textContent = 'Tie Game';
         } 
         else if (userChoice === 'paper' && compChoice === 'rock') {
-            console.log('the winner is user');
             gameResultTitle.textContent  = 'You Win';
-
             userChoiceArea.appendChild(winnerBlock);
             score += 1;
             scoreValue.textContent = score;
         } 
         else if (userChoice === 'paper' && compChoice === 'scissors') {
-            console.log('the winner is comp');
             gameResultTitle.textContent = 'You Lose';
-
             compChoiceArea.appendChild(winnerBlock);
             score -= 1;
             scoreValue.textContent = score;
         } 
         else if (userChoice === 'rock' && compChoice === 'scissors') {
-            console.log('the winner is user');
             gameResultTitle.textContent  = 'You Win';
             userChoiceArea.appendChild(winnerBlock);
             score += 1;
             scoreValue.textContent = score;
         } 
         else if (userChoice === 'rock' && compChoice === 'paper') {
-            console.log('the winner is comp');
             gameResultTitle.textContent = 'You Lose';
-
             compChoiceArea.appendChild(winnerBlock);
             score -= 1;
             scoreValue.textContent = score;
         } 
         else if (userChoice === 'scissors' && compChoice === 'paper') {
-            console.log('the winner is user');
             gameResultTitle.textContent  = 'You Win';
             userChoiceArea.appendChild(winnerBlock);
             score += 1;
             scoreValue.textContent = score;
         }
         else if (userChoice === 'scissors' && compChoice === 'rock') {
-            console.log('the winner is comp');
             gameResultTitle.textContent = 'You Lose';
-            
             compChoiceArea.appendChild(winnerBlock);
             score -= 1;
             scoreValue.textContent = score;
@@ -171,15 +157,12 @@ function getUserChoice(choice) {
 }
 
 // User Choice listener
-btnPaper.addEventListener('click', () => {
-    getUserChoice('paper');
-});
-btnRock.addEventListener('click', () => {
-    getUserChoice('rock');
-});
-btnScissors.addEventListener('click', () => {
-    getUserChoice('scissors');
-});
+btnChoices.forEach(button => {
+    button.addEventListener('click', () => {
+        userChoice = button.getAttribute('data-item');
+        getUserChoice(userChoice);
+    })
+})
 
 // Restart button
 btnRestart.addEventListener('click', () => {
